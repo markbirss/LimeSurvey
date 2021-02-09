@@ -256,6 +256,12 @@ class QuestionAdministrationController extends LSBaseController
             $viewData['advancedSettings'] = $this->removeOtherCommentMandatoryFromLogicTab($advancedSettings);
         }
 
+        // Remove Input Validation from General Settings Tab for List with Comment Question Attribute.
+        var_dump($questionAttributes);
+        die();
+        
+        $questionAttributeListWithComment = $questionAttributes[5];
+
         $this->aData = array_merge($this->aData, $viewData);
 
         $this->render(
