@@ -257,11 +257,10 @@ class QuestionAdministrationController extends LSBaseController
         }
 
         // Remove Input Validation from General Settings Tab for List with Comment Question Attribute.
-        var_dump($questionAttributes);
-        die();
-        
         $questionAttributeListWithComment = $questionAttributes[5];
-
+        if ($questionAttributeListWithComment['title'] === 'List with comment') {
+            $viewData['generalSettings'] = $this->removeInputValidationFromGeneralSettings($generalSettings);
+        }
         $this->aData = array_merge($this->aData, $viewData);
 
         $this->render(
